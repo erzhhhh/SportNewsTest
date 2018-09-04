@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_football">Новости о фуболе</string>
+    <string name="nav_hockey">Новости о хоккее</string>
+    <string name="nav_tennis">Новости о теннисе</string>
+    <string name="nav_basketball">Новости о баскетболе</string>
+    <string name="nav_volleyball">Новости о волейболе</string>
+    <string name="nav_cybersport">Новости о киберспорте</string>
+</resources>
