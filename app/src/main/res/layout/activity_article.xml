@@ -96,6 +96,61 @@
             android:layout_marginTop="22dp"
             android:layout_width="match_parent"
             android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/empty_view"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:id="@+id/empty_shelter_image"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_empty_shelter" />
+
+            <TextView
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/empty_title_text"
+                android:layout_below="@+id/empty_shelter_image"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/loadError"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/loadingInProgress"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:gravity="center_vertical"
+                android:id="@+id/loadingInProgressImage"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_empty_shelter" />
+
+            <TextView
+                android:id="@+id/loadingInProgressText"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/loadingInProgressImage"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:text="@string/loadingInProgress"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </ScrollView>

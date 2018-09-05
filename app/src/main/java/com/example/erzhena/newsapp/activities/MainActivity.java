@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.erzhena.newsapp.App;
 import com.example.erzhena.newsapp.Constants;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, CategoryContract.View {
 
     private RecyclerView recyclerView;
+    View emptyView;
+    View loadingView;
     private String chosenCategory = "football";
 
     @Inject
@@ -43,6 +46,11 @@ public class MainActivity extends AppCompatActivity
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        emptyView = findViewById(R.id.empty_view);
+        emptyView.setVisibility(View.GONE);
+
+        loadingView = findViewById(R.id.loadingInProgress);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -60,6 +68,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showContent(List<CategoryEvents> categories) {
+        recyclerView.setVisibility(View.VISIBLE);
+        loadingView.setVisibility(View.GONE);
         Intent intent = new Intent(MainActivity.this, ArticleActivity.class);
         recyclerView.setAdapter(new CategoryAdapter(categories, item ->
                 startActivity(intent.putExtra(Constants.article, item.getArticle()))));
@@ -67,7 +77,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showError() {
-
+        recyclerView.setVisibility(View.GONE);
+        loadingView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
     }
 
     @Override

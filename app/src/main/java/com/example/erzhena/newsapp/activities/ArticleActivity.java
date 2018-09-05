@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,17 +15,15 @@ import com.example.erzhena.newsapp.R;
 import com.example.erzhena.newsapp.adapters.ArticleArticleAdapter;
 import com.example.erzhena.newsapp.contracts.ArticleContract;
 import com.example.erzhena.newsapp.models.Article;
-import com.example.erzhena.newsapp.models.ArticleArticle;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
 public class ArticleActivity
         extends AppCompatActivity
         implements ArticleContract.View {
+
+    View emptyView;
+    View loadingView;
 
     @Inject
     ArticleContract.Presenter articlePresenter;
@@ -40,12 +37,15 @@ public class ArticleActivity
         Intent intent = getIntent();
         String article = intent.getStringExtra(Constants.article);
 
-
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        emptyView = findViewById(R.id.empty_view);
+        emptyView.setVisibility(View.GONE);
+
+        loadingView = findViewById(R.id.loadingInProgress);
 
         articlePresenter.attachView(this);
         articlePresenter.loadArticle(article);
@@ -53,6 +53,8 @@ public class ArticleActivity
 
     @Override
     public void showContent(Article article) {
+        loadingView.setVisibility(View.GONE);
+
         TextView team1 = (TextView) findViewById(R.id.team1);
         team1.setText(article.getTeam1());
 
@@ -75,7 +77,8 @@ public class ArticleActivity
 
     @Override
     public void showError() {
-
+        loadingView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
     }
 
     @Override

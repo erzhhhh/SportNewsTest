@@ -11,4 +11,6 @@
     <string name="nav_basketball">Новости о баскетболе</string>
     <string name="nav_volleyball">Новости о волейболе</string>
     <string name="nav_cybersport">Новости о киберспорте</string>
+    <string name="loadError">Не удалось загрузить информацию.\nПопробуйте ещё раз</string>
+    <string name="loadingInProgress">Информация загружается. Пожалуйста, подождите</string>
 </resources>
