@@ -1,6 +1,9 @@
 package com.example.erzhena.newsapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,10 +34,12 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     View emptyView;
     View loadingView;
+    View noInternetView;
     private String chosenCategory = "football";
 
     @Inject
     CategoryContract.Presenter categoryPresenter;
+    CategoryAdapter categoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +52,11 @@ public class MainActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        emptyView = findViewById(R.id.empty_view);
+        emptyView = findViewById(R.id.emptyView);
         emptyView.setVisibility(View.GONE);
+
+        noInternetView = findViewById(R.id.noInternetTextView);
+        noInternetView.setVisibility(View.GONE);
 
         loadingView = findViewById(R.id.loadingInProgress);
 
@@ -61,8 +69,16 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        categoryPresenter.attachView(this);
-        categoryPresenter.loadCategories(chosenCategory);
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()) {
+            categoryPresenter.attachView(this);
+            categoryPresenter.loadCategories(chosenCategory);
+        } else {
+            noInternetView.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -77,9 +93,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showError() {
-        recyclerView.setVisibility(View.GONE);
-        loadingView.setVisibility(View.GONE);
-        emptyView.setVisibility(View.VISIBLE);
+        if (categoryAdapter.getItemCount() == 0) {
+            recyclerView.setVisibility(View.GONE);
+            loadingView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

@@ -55,25 +55,62 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="349dp" />
 
-        <TextView
-            android:ellipsize="end"
-            android:id="@+id/time"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="22dp"
-            android:layout_width="match_parent"
-            android:textSize="15sp" />
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:ellipsize="end"
-            android:id="@+id/tournament"
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/timeHint"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:text="@string/timeHint"
+                android:textSize="15sp" />
+
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/time"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="22dp"
-            android:layout_width="match_parent"
-            android:textSize="15sp" />
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/tournamentHint"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:text="@string/tournamentHint"
+                android:textSize="15sp" />
+
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/tournament"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <TextView
             android:autoLink="all"
@@ -98,22 +135,22 @@
             android:textSize="15sp" />
 
         <RelativeLayout
-            android:id="@+id/empty_view"
+            android:id="@+id/emptyView"
             android:layout_centerInParent="true"
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
             <ImageView
-                android:id="@+id/empty_shelter_image"
+                android:id="@+id/noInfoLoaded"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_empty_shelter" />
+                android:src="@drawable/if_recycling_1936907" />
 
             <TextView
                 android:fontFamily="sans-serif-medium"
-                android:id="@+id/empty_title_text"
-                android:layout_below="@+id/empty_shelter_image"
+                android:id="@+id/noInfoLoadedText"
+                android:layout_below="@+id/noInfoLoaded"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -136,7 +173,7 @@
                 android:layout_centerInParent="true"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_empty_shelter" />
+                android:src="@drawable/if_workplace_1936905" />
 
             <TextView
                 android:id="@+id/loadingInProgressText"

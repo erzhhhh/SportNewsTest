@@ -24,8 +24,8 @@ public class ArticleArticleAdapter extends ArrayAdapter<ArticleArticle> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.article_item, parent, false);
         }
 
-        TextView articleHeader = (TextView) convertView.findViewById(R.id.articleHeader);
-        TextView articleText = (TextView) convertView.findViewById(R.id.articleText);
+        TextView articleHeader = convertView.findViewById(R.id.articleHeader);
+        TextView articleText = convertView.findViewById(R.id.articleText);
 
         articleHeader.setText(user.getHeader());
         articleText.setText(user.getText());

@@ -18,7 +18,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/empty_view"
+        android:id="@+id/emptyView"
         android:layout_centerInParent="true"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
@@ -28,7 +28,7 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_empty_shelter" />
+            android:src="@drawable/if_recycling_1936907" />
 
         <TextView
             android:fontFamily="sans-serif-medium"
@@ -56,18 +56,38 @@
             android:layout_centerInParent="true"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_empty_shelter" />
+            android:src="@drawable/if_workplace_1936905" />
 
         <TextView
             android:id="@+id/loadingInProgressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/loadingInProgressImage"
             android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
             android:text="@string/loadingInProgress"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/noInternet"
+        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+
+        <TextView
+            android:id="@+id/noInternetTextView"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:text="@string/noInternet"
+            android:textSize="16sp" />
+
 
     </RelativeLayout>
 

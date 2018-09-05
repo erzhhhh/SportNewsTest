@@ -13,4 +13,7 @@
     <string name="nav_cybersport">Новости о киберспорте</string>
     <string name="loadError">Не удалось загрузить информацию.\nПопробуйте ещё раз</string>
     <string name="loadingInProgress">Информация загружается. Пожалуйста, подождите</string>
+    <string name="timeHint">Время : </string>
+    <string name="tournamentHint">Турнир : </string>
+    <string name="noInternet">Отсутствиует подключение к сети интернет</string>
 </resources>

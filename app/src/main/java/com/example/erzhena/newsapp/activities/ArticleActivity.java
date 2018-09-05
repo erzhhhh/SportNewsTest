@@ -37,12 +37,12 @@ public class ArticleActivity
         Intent intent = getIntent();
         String article = intent.getStringExtra(Constants.article);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        emptyView = findViewById(R.id.empty_view);
+        emptyView = findViewById(R.id.emptyView);
         emptyView.setVisibility(View.GONE);
 
         loadingView = findViewById(R.id.loadingInProgress);
@@ -55,23 +55,23 @@ public class ArticleActivity
     public void showContent(Article article) {
         loadingView.setVisibility(View.GONE);
 
-        TextView team1 = (TextView) findViewById(R.id.team1);
+        TextView team1 = findViewById(R.id.team1);
         team1.setText(article.getTeam1());
 
-        TextView team2 = (TextView) findViewById(R.id.team2);
+        TextView team2 = findViewById(R.id.team2);
         team2.setText(article.getTeam2());
 
-        TextView time = (TextView) findViewById(R.id.time);
+        TextView time = findViewById(R.id.time);
         time.setText(article.getTime());
 
-        TextView tournament = (TextView) findViewById(R.id.tournament);
+        TextView tournament = findViewById(R.id.tournament);
         tournament.setText(article.getTournament());
 
-        TextView prediction = (TextView) findViewById(R.id.prediction);
+        TextView prediction = findViewById(R.id.prediction);
         prediction.setText(article.getPrediction());
 
         ArticleArticleAdapter adapter = new ArticleArticleAdapter(this, article.getArticle());
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
     }
 
